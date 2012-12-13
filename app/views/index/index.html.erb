@@ -113,7 +113,7 @@
 
 		$.ajax({
 	    	type: "POST",
-	    	url: "http://127.0.0.1:3000/example_application/artists",
+	    	url: "http://www.saveplz.com/example_application/artists",
 	    	data: value,
 	    	complete: function(data) {
 	     	   id = data.responseText;
@@ -129,7 +129,7 @@
 		}
 		$.ajax({
 	   		type: "GET",
-	    	url: "http://127.0.0.1:3000/example_application/artists/" + id,
+	    	url: "http://www.saveplz.com/example_application/artists/" + id,
 	    	complete: function(data) {
 	    	    alert(data.responseText);
 	    	}
@@ -139,7 +139,7 @@
 	function runGetAllData() {
 		$.ajax({
 	   		type: "GET",
-	    	url: "http://127.0.0.1:3000/example_application/artists/",
+	    	url: "http://www.saveplz.com/example_application/artists/",
 	    	complete: function(data) {
 	    	    alert(data.responseText);
 	    	}
@@ -150,7 +150,7 @@
 	function runGetAllCollections() {
 		$.ajax({
 	   		type: "GET",
-	    	url: "http://127.0.0.1:3000/example_application",
+	    	url: "http://www.saveplz.com/example_application",
 	    	complete: function(data) {
 	    	    alert(data.responseText);
 	    	}
