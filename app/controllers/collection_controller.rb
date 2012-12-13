@@ -12,7 +12,6 @@ class CollectionController < ApplicationController
 		if collection == nil
 			render :nothing => true, :status => 501 #Not Implemented
 		else
-			json = JSON.parse("{}")
 			list = []
 			#collection["collection"] = params[:collection]
 			collection.records.each do |record|
@@ -21,9 +20,7 @@ class CollectionController < ApplicationController
 				list.push(data)
 			end
 
-			json[collection.name] = list
-
-			render :json => json
+			render :json => list
 		end
 	end
 
