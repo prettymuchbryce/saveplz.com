@@ -17,7 +17,7 @@
 		<span class = "columnTitle">POST</span>
 		<table>
 			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
-			<tr><td class = "url">/unique_app_id/collection</td><td>Adds a new JSON object to the collection.<br>Returns the id of the object.</td></tr>
+			<tr><td class = "url">/unique_app_id/collection_name</td><td>Adds a new JSON object to the collection.<br>Returns the id of the object.</td></tr>
 		</table>
 	</span>
 	<span class = "column">
@@ -25,10 +25,14 @@
 		<table>
 			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
 			<tr><td class = "url">/unique_app_id/collection_name/id</td><td>Get the JSON object from the collection</td></tr>
-			<tr><td class = "url">/unique_app_id/collection</td><td>List all JSON objects in the collection</td></tr>
+			<tr><td class = "url">/unique_app_id/collection_name</td><td>List all JSON objects in the collection</td></tr>
 			<tr><td class = "url">/unique_app_id</td><td>List all collections within the app</td></tr>
 		</table>
 	</span>
+</span><br>
+<span class = "terms">
+<strong>unique_app_id</strong> - Whatever you want to name your app namespace.<br>
+<strong>collection_name</strong> - Whatever you want to name your collection. You can have as many as you like.
 </span>
 <br><br>
 
@@ -100,7 +104,7 @@
 			<br><br><button onclick="runGetAllCollections()">GET</button>
 </span>
 </td></table>
-<br><br><br>
+<br><br><span class = "terms">Delete operations are also supported.</span><br>
 <span class = "bottombar">
 	Did something break? plz <a href = "mailto:brycedneal@gmail.com">Let me know</a>
 </span>

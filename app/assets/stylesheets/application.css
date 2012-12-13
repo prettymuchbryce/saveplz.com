@@ -19,6 +19,11 @@ body {
 	padding-top: 20px;
 	padding-bottom: 0px;
 }
+.terms {
+	text-align: center;
+	width:100%;
+	display: block;
+}
 .script {
 	font-size:14px;
 	padding:15px;
