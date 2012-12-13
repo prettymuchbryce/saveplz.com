@@ -1,0 +1,158 @@
+<span class = "header">
+	saveplz
+</span>
+<span class = "elevator">Saveplz is a RESTful open API to store JSON data</span>
+<span class = "why">
+<li>Build front-end prototypes without backend setup.</li>
+<li>No downloads. Just make a request.</li>
+<li>Free</li>
+</span>
+<span class = "description">
+	Here's how it works..
+</span>
+<span class = "columns">
+	<span class = "column">
+		<span class = "columnTitle">POST</span>
+		<table>
+			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
+			<tr><td class = "url">/unique_app_id/collection</td><td>Adds a new JSON object to the collection.<br>Returns the id of the object.</td></tr>
+		</table>
+	</span>
+	<span class = "column">
+		<span class = "columnTitle">GET</span>
+		<table>
+			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
+			<tr><td class = "url">/unique_app_id/collection_name/id</td><td>Get the JSON object from the collection</td></tr>
+			<tr><td class = "url">/unique_app_id/collection</td><td>List all JSON objects in the collection</td></tr>
+			<tr><td class = "url">/unique_app_id</td><td>List all collections within the app</td></tr>
+		</table>
+	</span>
+</span>
+<br><br>
+
+
+
+
+
+<span class = "example"><br><br>
+	<span class = "elevator">Heres how you might get and post some data with Jquery...</span><br><br><br><br>
+	<span class = "script">var id;</span>
+	<table>
+		<td>
+			<span class = "script">
+				artist = <input type="text" id = "textbox" size="46" value='{ "name": "beatles", "genre": "rock and roll" }'/>;<br><br>
+
+				$.ajax({<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;type: "POST",<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;url: <span class="url">"http://www.saveplz.com/example_application/artists"</span>,<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;data: artist,<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;complete: function(data) {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id = data.responseText;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(id);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+				});
+			</span>
+			<br><br><button onclick="runPost()">POST</button>
+		</td>
+		<td>
+			<span class = "script">
+				$.ajax({<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;type: "GET",<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;url: <span class="url">"http://www.saveplz.com/example_application/artists/"+id</span>,<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;complete: function(data) {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(data.responseText);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+				});
+			</span>
+			<br><br><button onclick="runGet()">GET</button>
+		</td>
+	</table>
+</span>
+
+
+	<br><br><span class = "elevator">Some other ways you might get data out..</span><br><br><br><br>
+<table><td>
+<span class = "example">
+			<span class = "script">
+				$.ajax({<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;type: "GET",<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;url: <span class="url">"http://www.saveplz.com/example_application/artists"</span>,<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;complete: function(data) {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(data.responseText);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+				});
+			</span>
+			<br><br><button onclick="runGetAllData()">GET</button>
+</span>
+</td><td>
+<span class = "example">
+			<span class = "script">
+				$.ajax({<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;type: "GET",<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;url: <span class="url">"http://www.saveplz.com/example_application"</span>,<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;complete: function(data) {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(data.responseText);<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+				});
+			</span>
+			<br><br><button onclick="runGetAllCollections()">GET</button>
+</span>
+</td></table>
+<br><br><br>
+<span class = "bottombar">
+	Did something break? plz <a href = "mailto:brycedneal@gmail.com">Let me know</a>
+</span>
+
+<script>
+	var id;
+
+	function runPost() {
+		value = jQuery.parseJSON($("#textbox").val());
+
+		$.ajax({
+	    	type: "POST",
+	    	url: "http://127.0.0.1:3000/example_application/artists",
+	    	data: value,
+	    	complete: function(data) {
+	     	   id = data.responseText;
+	     	   alert(id);
+	    	}
+		});
+	}
+
+	function runGet() {
+		if (id === undefined) {
+			alert("Run POST first");
+			return;
+		}
+		$.ajax({
+	   		type: "GET",
+	    	url: "http://127.0.0.1:3000/example_application/artists/" + id,
+	    	complete: function(data) {
+	    	    alert(data.responseText);
+	    	}
+		});
+	}
+
+	function runGetAllData() {
+		$.ajax({
+	   		type: "GET",
+	    	url: "http://127.0.0.1:3000/example_application/artists/",
+	    	complete: function(data) {
+	    	    alert(data.responseText);
+	    	}
+		});		
+	}
+
+
+	function runGetAllCollections() {
+		$.ajax({
+	   		type: "GET",
+	    	url: "http://127.0.0.1:3000/example_application",
+	    	complete: function(data) {
+	    	    alert(data.responseText);
+	    	}
+		});		
+	}
+
+</script>
