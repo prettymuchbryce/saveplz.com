@@ -17,16 +17,25 @@
 		<span class = "columnTitle">POST</span>
 		<table>
 			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
-			<tr><td class = "url">/unique_app_id/collection_name</td><td>Adds a new JSON object to the collection.<br>Returns the id of the object.</td></tr>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id/collection_name</td><td>Adds a new JSON object to the collection.<br>Returns the id of the object.</td></tr>
 		</table>
-	</span>
+	</span><br>
 	<span class = "column">
 		<span class = "columnTitle">GET</span>
 		<table>
 			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
-			<tr><td class = "url">/unique_app_id/collection_name/id</td><td>Get the JSON object from the collection</td></tr>
-			<tr><td class = "url">/unique_app_id/collection_name</td><td>List all JSON objects in the collection</td></tr>
-			<tr><td class = "url">/unique_app_id</td><td>List all collections within the app</td></tr>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id/collection_name/id</td><td>Get the JSON object from the collection</td></tr>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id/collection_name</td><td>List all JSON objects in the collection</td></tr>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id</td><td>List all collections within the app</td></tr>
+		</table>
+	</span>
+	<span class = "column">
+		<span class = "columnTitle">DELETE</span>
+		<table>
+			<tr><td class = "tableHeader">endpoint</td><td class = "tableHeader">action</td></tr></span>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id/collection_name/id</td><td>Delete the object</td></tr>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id/collection_name</td><td>Delete all objects in the collection</td></tr>
+			<tr><td class = "url">http://www.saveplz.com/unique_app_id</td><td>Delete the app</td></tr>
 		</table>
 	</span>
 </span><br>
@@ -104,7 +113,7 @@
 			<br><br><button onclick="runGetAllCollections()">GET</button>
 </span>
 </td></table>
-<br><br><span class = "terms">Delete operations are also supported.</span><br>
+<br><br><br>
 <span class = "bottombar">
 	Did something break? plz <a href = "mailto:brycedneal@gmail.com">Let me know</a>
 </span>
